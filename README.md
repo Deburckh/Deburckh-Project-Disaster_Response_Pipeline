@@ -32,9 +32,9 @@ Models contains the train_classifier.py script which use the DisasterResponse.db
 App contains the run.py script which sets up the website, the visualizations and the server.
 
 ### Instructions:
-- Execute the `run.py` script to start the application.
+- Execute the run.py script to start the application.
 
-If this doesn´t work try the following steps.
+If this doesn´t work try the following steps (beware it will take some time to train the model).
 
 1. Run the following commands in the project's root directory to set up your database and model.
     - To run ETL pipeline that cleans data and stores in database
@@ -43,4 +43,9 @@ If this doesn´t work try the following steps.
         `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
 2. Go to `app` directory: `cd app`
 3. Run your web app: `python run.py`
+
+Using the web app:
+1. Write the message you want to have classified into the text field 
+2. Click "Classify Message" 
+3. Check out the results (resulting categories will be highlited green)
 
