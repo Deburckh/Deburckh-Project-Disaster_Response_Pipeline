@@ -25,24 +25,26 @@ There are three main folders in this project:
 - models
 - app
 
-Data contains the process_data.py script which reads in the disaster_categories/messages.csv files, cleans them and stores them into a sqlite database called DisasterResponse.db.
+Data contains the "process_data.py" script which reads in the "disaster_categories/messages.csv" files, cleans them and stores them into a sqlite database called "DisasterResponse.db".
 
-Models contains the train_classifier.py script which use the DisasterResponse.db to load it´s data. Additionally it sets up a ML pipeline, fits and evaluates the model and saves it to a picke file in the end. 
+Models contains the train_classifier.py script which use the "DisasterResponse.db" to load it´s data. Additionally it sets up a ML pipeline, fits and evaluates the model and saves it to a picke "classifier.pkl" file in the end. 
 
-App contains the run.py script which sets up the website, the visualizations and the server.
+App contains the "run.py" script which sets up the website, the visualizations and the server.
 
 ### Instructions:
-- Execute the run.py script to start the application.
+Since the "classifier.pkl" is too large to upload, you have to train you own model using the provided code, you can start at step 2 (beware it will take some time to train the model).
 
-If this doesn´t work try the following steps (beware it will take some time to train the model).
-
-1. Run the following commands in the project's root directory to set up your database and model.
+1. Run the following commands in the project's root directory to set up your database and model:
     - To run ETL pipeline that cleans data and stores in database
         `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
+        
+2. Run the following commands in the project's root directory to set up your database and model:
     - To run ML pipeline that trains classifier and saves
         `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
-2. Go to `app` directory: `cd app`
-3. Run your web app: `python run.py`
+        
+3. Go to `app` directory: `cd app`
+
+4. Run your web app: `python run.py`
 
 Using the web app:
 1. Write the message you want to have classified into the text field 
