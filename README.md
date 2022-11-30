@@ -8,6 +8,17 @@ The project is divided in three sections:
 2. Machine Learning Pipeline: split the data into a training set and a test set. Then, create a machine learning pipeline that uses NLTK, as well as scikit-learn's Pipeline and GridSearchCV to output a final model that predicts a message classifications for the 36 categories (multi-output classification).
 3. Web development develop a web application to show classify messages in real time.
 
+### Libraries & Installations:
+- Python Version 3.6.3
+- numpy
+- pandas
+- nltk
+- sklearn
+- sqlalchemy
+
+A full list of requirements can be found under the requirements.txt file. 
+To install all Python packages written in the requirements.txt file run pip install -r requirements.txt.
+
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
