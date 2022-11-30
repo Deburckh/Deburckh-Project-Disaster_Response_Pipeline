@@ -1,5 +1,13 @@
 # Disaster Response Pipeline Project
 
+### Summary:
+This project is part of the Udacity Data Scientis Nanodegree. The goal of this project is to apply the data engineering skills learned in the course to analyze disaster data to build a model that classifies disaster messages. 
+
+The project is divided in three sections:
+1. Data Processing: build an ETL (Extract, Transform, and Load) Pipeline to extract data from the given dataset, clean the data, and then store it in a SQLite database.
+2. Machine Learning Pipeline: split the data into a training set and a test set. Then, create a machine learning pipeline that uses NLTK, as well as scikit-learn's Pipeline and GridSearchCV to output a final model that predicts a message classifications for the 36 categories (multi-output classification).
+3. Web development develop a web application to show classify messages in real time.
+
 ### Instructions:
 1. Run the following commands in the project's root directory to set up your database and model.
 
