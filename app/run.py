@@ -3,6 +3,8 @@ import plotly
 import pandas as pd
 import nltk
 
+nltk.download('averaged_perceptron_tagger')
+
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
 from sklearn.base import BaseEstimator, TransformerMixin
