@@ -19,18 +19,28 @@ The project is divided in three sections:
 A full list of requirements can be found under the requirements.txt file. 
 To install all Python packages written in the requirements.txt file run pip install -r requirements.txt.
 
-### Instructions:
-1. Run the following commands in the project's root directory to set up your database and model.
+### Files:
+There are three main folders in this project:
+- data
+- models
+- app
 
+Data contains the process_data.py script which reads in the disaster_categories/messages.csv files, cleans them and stores them into a sqlite database called DisasterResponse.db.
+
+Models contains the train_classifier.py script which use the DisasterResponse.db to load it´s data. Additionally it sets up a ML pipeline, fits and evaluates the model and saves it to a picke file in the end. 
+
+App contains the run.py script which sets up the website, the visualizations and the server.
+
+### Instructions:
+- Execute the run.py script to start the application.
+
+If this doesn´t work try the following steps.
+
+1. Run the following commands in the project's root directory to set up your database and model.
     - To run ETL pipeline that cleans data and stores in database
         `python data/process_data.py data/disaster_messages.csv data/disaster_categories.csv data/DisasterResponse.db`
     - To run ML pipeline that trains classifier and saves
         `python models/train_classifier.py data/DisasterResponse.db models/classifier.pkl`
-
 2. Go to `app` directory: `cd app`
-
 3. Run your web app: `python run.py`
 
-4. Click the `PREVIEW` button to open the homepage
-
-5. test
