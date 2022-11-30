@@ -42,6 +42,8 @@ def clean_data(df):
         categories[column] = categories[column].astype(str).str[-1]
         categories[column] = categories[column].astype(int)
         
+    categories["related"] = categories["related"].map(lambda x: 1 if x == 2 else x)
+        
     df.drop("categories", axis=1, inplace=True)
     df = df.join(categories)
     
