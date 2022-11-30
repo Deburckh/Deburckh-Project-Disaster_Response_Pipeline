@@ -51,3 +51,5 @@ Using the web app:
 2. Click "Classify Message" 
 3. Check out the results (resulting categories will be highlited green)
 
+![image](https://user-images.githubusercontent.com/109270134/204795456-8268ea3e-5640-47e6-99f9-0e93c73c2eb3.png)
+
