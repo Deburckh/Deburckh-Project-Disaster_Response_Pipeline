@@ -32,7 +32,7 @@ Models contains the train_classifier.py script which use the DisasterResponse.db
 App contains the run.py script which sets up the website, the visualizations and the server.
 
 ### Instructions:
-- Execute the run.py script to start the application.
+- Execute the `run.py` script to start the application.
 
 If this doesn´t work try the following steps.
 
