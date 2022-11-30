@@ -21,6 +21,17 @@ nltk.download(['punkt', 'wordnet'])
 
 
 def load_data(database_filepath):
+    
+    '''
+    Load the data from the sqlite database
+    Args:
+        database_filepath (str): database name
+    Returns:
+        X (df): dataframe containing features
+        Y (df): dataframe containing labels
+        category_names (list): List of category names
+    '''
+        
     engine = create_engine('sqlite:///' + database_filepath)
     df = pd.read_sql('SELECT * FROM disaster_response', con=engine)
     X = df["message"]
@@ -30,6 +41,16 @@ def load_data(database_filepath):
 
 
 def tokenize(text):
+    
+    """
+    Prepares the text for the tfidf transformer  
+    
+    Args:
+        text (str): Text message which needs to be tokenized
+    Returns:
+        clean_tokens (list): List of tokens extracted from the provided text
+    """
+        
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
 
@@ -42,6 +63,13 @@ def tokenize(text):
 
 
 class StartingVerbExtractor(BaseEstimator, TransformerMixin):
+    
+    """
+    Starting Verb Extractor class
+    
+    This class extract the starting verb of a sentence,
+    creating a new feature for the ML classifier
+    """
 
     def starting_verb(self, text):
         sentence_list = nltk.sent_tokenize(text)
@@ -61,6 +89,14 @@ class StartingVerbExtractor(BaseEstimator, TransformerMixin):
     
     
 def build_model():
+    
+    """
+    Set up a ML Pipeline using GridSeach to optimize the parameters  
+
+    Returns:
+        model: Optimized ML Pipeline
+    """
+        
     pipeline = Pipeline([
         ('features', FeatureUnion([
 
@@ -86,6 +122,17 @@ def build_model():
 
 
 def evaluate_model(model, X_test, Y_test, category_names):
+    
+    """
+    Evaluates the model using the classification report 
+    
+    Args:
+        model: ML pipeline that is used for predicting 
+        X_test: Test features 
+        Y_test: Test labels
+        category_names (list): list with category names 
+    """
+        
     Y_pred = model.predict(X_test)
     for i in range(len(Y_test.columns)):
         print('Category {}: {} '.format(i, Y_test.columns[i]))
@@ -93,6 +140,15 @@ def evaluate_model(model, X_test, Y_test, category_names):
 
 
 def save_model(model, model_filepath):
+    
+    """
+    Saves the trained model into a pickle file for future use  
+    
+    Args:
+        model: fitted ML model 
+        model_filepath (string): filepath to save to pickle file to 
+    """
+        
     pickle.dump(model, open(model_filepath, 'wb'))
 
 

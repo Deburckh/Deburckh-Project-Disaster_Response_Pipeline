@@ -18,6 +18,13 @@ app = Flask(__name__)
 
 
 class StartingVerbExtractor(BaseEstimator, TransformerMixin):
+    
+    """
+    Starting Verb Extractor class
+    
+    This class extract the starting verb of a sentence,
+    creating a new feature for the ML classifier
+    """
 
     def starting_verb(self, text):
         sentence_list = nltk.sent_tokenize(text)
@@ -37,6 +44,16 @@ class StartingVerbExtractor(BaseEstimator, TransformerMixin):
     
     
 def tokenize(text):
+    
+    """
+    Prepares the text for the tfidf transformer  
+    
+    Args:
+        text (str): Text message which needs to be tokenized
+    Returns:
+        clean_tokens (list): List of tokens extracted from the provided text
+    """
+        
     tokens = word_tokenize(text)
     lemmatizer = WordNetLemmatizer()
 
@@ -61,7 +78,6 @@ model = joblib.load("../models/classifier.pkl")
 def index():
     
     # extract data needed for visuals
-    # TODO: Below is an example - modify to extract data for your own visuals
     genre_counts = df.groupby('genre').count()['message']
     genre_names = list(genre_counts.index)
     
@@ -69,9 +85,8 @@ def index():
     category_boolean = (df.iloc[:,3:] != 0).sum().values
     
     # create visuals
-    # TODO: Below is an example - modify to create your own visuals
     graphs = [
-            # GRAPH 1 - genre graph
+            # GRAPH 1 - genre
         {
             'data': [
                 Bar(
@@ -90,7 +105,7 @@ def index():
                 }
             }
         },
-            # GRAPH 2 - category graph    
+            # GRAPH 2 - category    
         {
             'data': [
                 Bar(
