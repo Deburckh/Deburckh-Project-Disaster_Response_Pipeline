@@ -32,7 +32,7 @@ Models contains the train_classifier.py script which use the "DisasterResponse.d
 App contains the "run.py" script which sets up the website, the visualizations and the server.
 
 ### Instructions:
-Since the "classifier.pkl" is too large to upload, you have to train you own model using the provided code, you can start at step 2 (beware it will take some time to train the model).
+Since the "classifier.pkl" is too large to upload, you have to train your own model using the provided code, you can start at step 2 (beware it will take some time to train the model).
 
 1. Run the following commands in the project's root directory to set up your database and model:
     - To run ETL pipeline that cleans data and stores in database
